@@ -1,0 +1,91 @@
+﻿using System;
+using NUnit.Framework;
+
+namespace TestApp.Tests;
+
+public class OrdersTests
+{
+    [Test]
+    public void Test_Order_WithEmptyInput_ShouldReturnEmptyString()
+    {
+        // Arrange
+        string[] input = Array.Empty<string>();
+
+        // Act
+        string result = Orders.Order(input);
+
+        // Assert
+        Assert.That(result, Is.Empty);
+    }
+
+    [Test]
+    public void Test_Order_WithMultipleOrders_ShouldReturnTotalPrice()
+    {
+        // Arrange
+        string[] input = new string[]
+        {
+                "apple 5.97 1",
+                "banana 3.75 1",
+                "orange 1.98 1",
+                "apple 3.50 2",
+                "banana 3.75 2"
+        };
+
+        string expected =
+            $"apple -> 10.50{Environment.NewLine}" +
+            $"banana -> 11.25{Environment.NewLine}" +
+            $"orange -> 1.98";
+
+        // Act
+        string result = Orders.Order(input);
+
+        // Assert
+        Assert.AreEqual(expected, result);
+    }
+
+    [Test]
+    public void Test_Order_WithRoundedPrices_ShouldReturnTotalPrice()
+    {
+        // Arrange
+        string[] input = new string[]
+        {
+                "apple 3 4",
+                "banana 2 4",
+                "orange 2 1"
+        };
+
+        string expected =
+            $"apple -> 12.00{Environment.NewLine}" +
+            $"banana -> 8.00{Environment.NewLine}" +
+            $"orange -> 2.00";
+
+        // Act
+        string result = Orders.Order(input);
+
+        // Assert
+        Assert.AreEqual(expected, result);
+    }
+
+    [Test]
+    public void Test_Order_WithDecimalQuantities_ShouldReturnTotalPrice()
+    {
+        // Arrange
+        string[] input = new string[]
+        {
+                "apple 1.25 4.38",
+                "banana 1.50 8.73",
+                "orange 2.19 1.25"
+        };
+
+        string expected =
+            $"apple -> 5.48{Environment.NewLine}" +
+            $"banana -> 13.10{Environment.NewLine}" +
+            $"orange -> 2.74";
+
+        // Act
+        string result = Orders.Order(input);
+
+        // Assert
+        Assert.AreEqual(expected, result);
+    }
+}
