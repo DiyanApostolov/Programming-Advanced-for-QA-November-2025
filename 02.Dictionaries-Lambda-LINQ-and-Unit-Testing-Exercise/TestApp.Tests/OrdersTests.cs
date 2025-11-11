@@ -49,15 +49,15 @@ public class OrdersTests
         // Arrange
         string[] input = new string[]
         {
-                "apple 3 4",
-                "banana 2 4",
-                "orange 2 1"
+                "apple 3.123 4",
+                "banana 2.255 4",
+                "orange 2.758 1"
         };
 
         string expected =
-            $"apple -> 12.00{Environment.NewLine}" +
-            $"banana -> 8.00{Environment.NewLine}" +
-            $"orange -> 2.00";
+            $"apple -> 12.49{Environment.NewLine}" +
+            $"banana -> 9.02{Environment.NewLine}" +
+            $"orange -> 2.76";
 
         // Act
         string result = Orders.Order(input);
