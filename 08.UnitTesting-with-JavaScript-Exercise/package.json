@@ -1,0 +1,17 @@
+{
+  "name": "08.unittesting-with-javascript-exercise",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Unit Test with JS - Execrise",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Diyan Apostolov",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^6.2.1",
+    "mocha": "^11.7.5"
+  }
+}
