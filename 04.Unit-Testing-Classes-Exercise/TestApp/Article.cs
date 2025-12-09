@@ -16,15 +16,20 @@ public class Article
 
     public Article AddArticles(string[] articles)
     {
+        // Вдигаме нова инстанция на класа Article
         Article article = new();
+
+        // Обикаляме всички статии от входния масив
         foreach (string data in articles)
         {
+            // разделяме си данните за всяка статия
             string[] split = data.Split();
 
             string title = split[0];
             string content = split[1];
             string author = split[2];
 
+            // добавяме статията към пропъртито, което съдърва списък от статии
             article.ArticleList.Add(new()
             {
                 Title = title,
@@ -39,6 +44,7 @@ public class Article
     public string GetArticleList(Article article, string printCriteria)
     {
         IOrderedEnumerable<Article>? list = null;
+
         switch (printCriteria)
         {
             case "title":
