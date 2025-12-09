@@ -1,4 +1,4 @@
-export const artGallery = {
+const artGallery = {
   addArtwork(title, dimensions, artist) {
     if (typeof title !== "string" || typeof artist !== "string") {
       throw new Error("Invalid Information!");
@@ -52,3 +52,7 @@ export const artGallery = {
     }
   },
 };
+
+export {
+  artGallery
+}

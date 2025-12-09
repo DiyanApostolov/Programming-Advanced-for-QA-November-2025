@@ -3,7 +3,7 @@ import { describe } from 'mocha'
 import { expect } from 'chai'
 
 describe('test_isOddOrEven', () => {
-    it('shoud return undefined if input parameter is not a string', () => {
+    it('should return undefined if input parameter is not a string', () => {
         // Arrange
         let input = 42;
 
@@ -18,7 +18,7 @@ describe('test_isOddOrEven', () => {
         expect(isOddOrEven(undefined)).to.be.undefined  // undefined
 
     })
-    it('shoud return text even if input parameter is with even length', () => {
+    it('should return text even if input parameter is with even length', () => {
         // Arrange
         let input = 'text'
         let expected = 'even'
@@ -29,7 +29,7 @@ describe('test_isOddOrEven', () => {
         // Assert
         expect(result).to.equal(expected)
     })
-    it('shoud return text odd if input parameter is with odd length', () => {
+    it('should return text odd if input parameter is with odd length', () => {
         // Arrange
         let input = 'Hello'
         let expected = 'odd'

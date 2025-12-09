@@ -3,21 +3,21 @@ import { expect } from "chai"
 
 describe.only('artGallery', () => {
     describe('test addArtwork', () => {
-        it('shoud throw an error if title is not a string', () => {
+        it('should throw an error if title is not a string', () => {
             let errorMessage = "Invalid Information!"
             expect(() => artGallery.addArtwork(42, '50 x 70', 'Picasso')).to.throw(errorMessage)
             expect(() => artGallery.addArtwork([], '50 x 70', 'Picasso')).to.throw(errorMessage)
             expect(() => artGallery.addArtwork({}, '50 x 70', 'Picasso')).to.throw(errorMessage)
             expect(() => artGallery.addArtwork(null, '50 x 70', 'Picasso')).to.throw(errorMessage)
         })
-        it('shoud throw an error if artist is not a string', () => {
+        it('should throw an error if artist is not a string', () => {
             let errorMessage = "Invalid Information!"
             expect(() => artGallery.addArtwork('Dove of peace', '50 x 70', 5)).to.throw(errorMessage)
             expect(() => artGallery.addArtwork('Dove of peace', '50 x 70', [])).to.throw(errorMessage)
             expect(() => artGallery.addArtwork('Dove of peace', '50 x 70', {})).to.throw(errorMessage)
             expect(() => artGallery.addArtwork('Dove of peace', '50 x 70', null)).to.throw(errorMessage)
         })
-        it('shoud throw an error if dimension is not in valid format', () => {
+        it('should throw an error if dimension is not in valid format', () => {
             let errorMessage = "Invalid Dimensions!"
             expect(() => artGallery.addArtwork('Dove of peace', 42, 'Picasso')).to.throw(errorMessage)
             expect(() => artGallery.addArtwork('Dove of peace', [30, 50], 'Picasso')).to.throw(errorMessage)
@@ -25,7 +25,7 @@ describe.only('artGallery', () => {
             expect(() => artGallery.addArtwork('Dove of peace', '75x 50', 'Picasso')).to.throw(errorMessage)
             expect(() => artGallery.addArtwork('Dove of peace', '75 x50', 'Picasso')).to.throw(errorMessage)
         })
-        it('shoud throw an error if artist is not allowed', () => {
+        it('should throw an error if artist is not allowed', () => {
             // Arrange
             let invalidArtist = 'V.D. Maistora'
             let errorMessage = "This artist is not allowed in the gallery!"
@@ -33,14 +33,14 @@ describe.only('artGallery', () => {
             // Act & Assert
             expect(() => artGallery.addArtwork('Dove of peace', '30 x 50', invalidArtist)).to.throw(errorMessage)
         })
-        it('shoud return proper message if all parameters are valid', () => {
+        it('should return proper message if all parameters are valid', () => {
             let message = `Artwork added successfully: 'Dove of peace' by Picasso with dimensions 50 x 70.`
 
             expect(artGallery.addArtwork('Dove of peace', '50 x 70', 'Picasso')).to.equal(message)
         })
     })
     describe('test calculateCosts', () => {
-        it('shoud thrown an error if any parameter are not valid', () => {
+        it('should thrown an error if any parameter are not valid', () => {
             let errorMessage = "Invalid Information!"
             // first parameter is not a number
             expect(() => artGallery.calculateCosts('5', 10, true)).to.throw(errorMessage)

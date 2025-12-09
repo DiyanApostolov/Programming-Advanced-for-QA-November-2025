@@ -2,7 +2,7 @@ import { analyzeArray } from "../arrayAnalyzer.js";
 import { expect, assert } from "chai";
 
 describe('test analyzeArray', () => {
-    it('shoud return undefined if input parameter is not an array or empty array', () => {
+    it('should return undefined if input parameter is not an array or empty array', () => {
         expect(analyzeArray(42)).to.be.undefined
         expect(analyzeArray('text')).to.be.undefined
         expect(analyzeArray({})).to.be.undefined
